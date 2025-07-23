@@ -1,0 +1,147 @@
+{
+    "info": {
+      "name": "Week4 API",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+      "_postman_id": "12345678-1234-1234-1234-1234567890ab",
+      "description": "DummyJSON endpoints for Week 4 API Automation"
+    },
+    "item": [
+      {
+        "name": "Auth",
+        "item": [
+          {
+            "name": "Login",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"username\": \"{{USERNAME}}\",\n  \"password\": \"{{PASSWORD}}\"\n}"
+              },
+              "url": {
+                "raw": "{{BASE_URL}}/auth/login",
+                "host": ["{{BASE_URL}}"],
+                "path": ["auth", "login"]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Get Profile",
+            "request": {
+              "method": "GET",
+              "header": [
+                {
+                  "key": "Authorization",
+                  "value": "Bearer {{accessToken}}"
+                }
+              ],
+              "url": {
+                "raw": "{{BASE_URL}}/auth/me",
+                "host": ["{{BASE_URL}}"],
+                "path": ["auth", "me"]
+              }
+            },
+            "response": []
+          }
+        ]
+      },
+      {
+        "name": "Products",
+        "item": [
+          {
+            "name": "Create Product",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"title\": \"Test Item\",\n  \"price\": 99,\n  \"stock\": 10\n}"
+              },
+              "url": {
+                "raw": "{{BASE_URL}}/products/add",
+                "host": ["{{BASE_URL}}"],
+                "path": ["products", "add"]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Get Product by ID",
+            "request": {
+              "method": "GET",
+              "url": {
+                "raw": "{{BASE_URL}}/products/:id",
+                "host": ["{{BASE_URL}}"],
+                "path": ["products", ":id"]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Update Product",
+            "request": {
+              "method": "PUT",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"price\": 79\n}"
+              },
+              "url": {
+                "raw": "{{BASE_URL}}/products/:id",
+                "host": ["{{BASE_URL}}"],
+                "path": ["products", ":id"]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Delete Product",
+            "request": {
+              "method": "DELETE",
+              "url": {
+                "raw": "{{BASE_URL}}/products/:id",
+                "host": ["{{BASE_URL}}"],
+                "path": ["products", ":id"]
+              }
+            },
+            "response": []
+          }
+        ]
+      }
+    ],
+    "variable": [
+      {
+        "key": "BASE_URL",
+        "value": "https://dummyjson.com"
+      },
+      {
+        "key": "USERNAME",
+        "value": "emilys"
+      },
+      {
+        "key": "PASSWORD",
+        "value": "emilyspass"
+      },
+      {
+        "key": "accessToken",
+        "value": ""
+      }
+    ]
+  }
+  

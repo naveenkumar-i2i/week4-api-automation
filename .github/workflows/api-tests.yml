@@ -32,8 +32,18 @@ jobs:
           PASSWORD=emilyspass
           EOF
 
-      - name: Run core API tests
-        run: npx playwright test tests/loginSession.test.ts tests/crudProduct.test.ts tests/security.test.ts
+      - name: Start mock server
+        run: npm run start:mock &
+
+      - name: Wait for mock server to be ready
+        run: |
+          for i in {1..10}; do
+            curl -s http://127.0.0.1:3000/auth/login > /dev/null && break
+            echo "Waiting for mock server..." && sleep 1
+          done
+
+      - name: Run all API tests
+        run: npx playwright test
 
       - name: Upload HTML report artifact
         uses: actions/upload-artifact@v4

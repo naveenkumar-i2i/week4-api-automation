@@ -1,21 +1,20 @@
 {
-  "name": "week4",
+  "name": "week4-api-automation",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "playwright test",
+    "test": "playwright test tests/loginSession.test.ts tests/crudProduct.test.ts tests/security.test.ts",
+    "start:mock": "node mock-server/server.js",
     "report": "playwright show-report"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
   "devDependencies": {
-    "@playwright/test": "^1.54.1",
-    "@types/node": "^24.1.0",
-    "dotenv": "^17.2.0",
-    "playwright": "^1.54.1",
-    "zod": "^4.0.5"
+    "express": "^4.18.2",
+    "json-server": "^0.17.3",
+    "jsonwebtoken": "^9.0.0",
+    "@playwright/test": "^1.36.0",
+    "dotenv": "^10.0.0",
+    "zod": "^3.21.4"
+  },
+  "dependencies": {
   }
 }
